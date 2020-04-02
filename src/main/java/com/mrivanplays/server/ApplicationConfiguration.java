@@ -14,6 +14,7 @@ public class ApplicationConfiguration {
 
     private String bcryptPassword;
     private File favicon;
+    private boolean useHTTPS;
 
     public ApplicationConfiguration() {
         File file = new File(".", "config.json");
@@ -32,6 +33,7 @@ public class ApplicationConfiguration {
         }
         bcryptPassword = object.get("encodedPassword").asText();
         favicon = new File(object.get("faviconPath").asText());
+        useHTTPS = object.get("useHTTPS").asBoolean();
     }
 
     public String getEncodedPassword() {
@@ -40,5 +42,9 @@ public class ApplicationConfiguration {
 
     public File getFavicon() {
         return favicon;
+    }
+
+    public boolean shouldUseHTTPS() {
+        return useHTTPS;
     }
 }

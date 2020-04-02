@@ -75,9 +75,7 @@ public class LinkController {
 
     @PostMapping("/customCreate")
     public ModelAndView renderCustomPost(@ModelAttribute CustomLinkCreateRequest gotoInfo, HttpServletRequest request) {
-        String baseUrl = ServletUriComponentsBuilder.fromRequestUri(request)
-                .replacePath(null)
-                .build().toUriString();
+        String baseUrl = getBaseUrl(request);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("homePage", baseUrl);
         String url = gotoInfo.getLongUrl();
@@ -109,9 +107,7 @@ public class LinkController {
 
     @PostMapping("/")
     public ModelAndView renderPost(@ModelAttribute LinkCreateRequest gotoInfo, HttpServletRequest request) {
-        String baseUrl = ServletUriComponentsBuilder.fromRequestUri(request)
-                .replacePath(null)
-                .build().toUriString();
+        String baseUrl = getBaseUrl(request);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("homePage", baseUrl);
         String url = gotoInfo.getUrl();
@@ -143,9 +139,7 @@ public class LinkController {
 
     @PostMapping("/api/create")
     public ResponseEntity<LinkCreateResponse> createRequest(@RequestBody LinkCreateRequest linkRequest, HttpServletRequest request) {
-        String baseUrl = ServletUriComponentsBuilder.fromRequestUri(request)
-                .replacePath(null)
-                .build().toUriString();
+        String baseUrl = getBaseUrl(request);
         String url = linkRequest.getUrl();
         try {
             new URL(url);
@@ -170,9 +164,7 @@ public class LinkController {
 
     @PostMapping("/api/createCustom")
     public ResponseEntity<LinkCreateResponse> customCreateRequest(@RequestBody CustomLinkCreateRequest linkRequest, HttpServletRequest request) {
-        String baseUrl = ServletUriComponentsBuilder.fromRequestUri(request)
-                .replacePath(null)
-                .build().toUriString();
+        String baseUrl = getBaseUrl(request);
         String url = linkRequest.getLongUrl();
         try {
             new URL(url);
@@ -248,6 +240,17 @@ public class LinkController {
             return getInfo(StringRandomCreator.generateRandomString(11));
         }
         return new Information(file, id);
+    }
+
+    private String getBaseUrl(HttpServletRequest request) {
+        String baseUrl = ServletUriComponentsBuilder.fromRequestUri(request)
+                .replacePath(null)
+                .build().toUriString();
+        if (appConfiguration.shouldUseHTTPS()) {
+            return baseUrl.replace("http", "https");
+        } else {
+            return baseUrl;
+        }
     }
 
     @AllArgsConstructor
