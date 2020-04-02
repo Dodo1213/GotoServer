@@ -7,9 +7,9 @@ only from bots, but from other people you don't want to use your personalized go
 config.json is a bcrypt hash, you can get one for your password from [here](https://www.browserling.com/tools/bcrypt).
 The default one set is `admin`.
 
-The service is using Spring to provide fast speeds for responses. We do support the `/favicon.ico` route, however I wasn't
-able to make it working on the pages. Installing one is also easy: the config.json has a path for it, you can put it
-whatever you want. The default location is where the application is ran.
+The service is using Spring to provide fast speeds for responses. We do support the `/favicon.ico` route. Installing 
+favicon is easy: the config.json has a path for it, you can put it whatever you want. The default location is where the 
+application is ran.
 
 # Usage 
 The first thing you need to do is to retrieve a jar. You have to have maven installed on your computer! Simply run
