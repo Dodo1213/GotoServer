@@ -1,0 +1,26 @@
+<html lang="en" xmlns:th="https://thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static/css/shortenLinkStyle.css" th:href="@{/css/shortenLinkStyle.css}">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/favicon.ico}"/>
+    <title>Link creator</title>
+</head>
+<body>
+<h1>Create a shortened link</h1>
+<form action="#" th:action="@{/}" th:object="${gotoInfo}" method="post">
+    <div class="group">
+        <input type="text" th:field="*{url}" id="url" required/>
+        <label for="url">Long URL</label>
+        <div class="bar"></div>
+    </div>
+    <div class="group">
+        <input type="password" th:field="*{password}" id="password" required/>
+        <label for="password">Password</label>
+        <div class="bar"></div>
+    </div>
+    <p><input type="submit" value="Shorten!"/></p>
+</form>
+</body>
+</html>

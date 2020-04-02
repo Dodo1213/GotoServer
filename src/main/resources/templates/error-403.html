@@ -1,0 +1,21 @@
+<html lang="en" xmlns:th="https://thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/css/errorStyle.css" th:href="@{/css/errorStyle.css}">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/favicon.ico}"/>
+    <title>403 Forbidden</title>
+</head>
+<body>
+<h1>403 Forbidden</h1>
+<p class="zoom-area">You are probably seeing this because you have typed incorrect password for creating shorten link!</p>
+<section class="error-container">
+    <span>4</span>
+    <span><span class="screen-reader-text">0</span></span>
+    <span>3</span>
+</section>
+<div class="link-container">
+    <a th:href="${homePage}" class="more-link" th:text="'Return to home page'" />
+</div>
+</body>
+</html>
