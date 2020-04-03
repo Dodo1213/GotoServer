@@ -8,7 +8,7 @@ body {
 
 h1 {
     color: white;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 40px;
 }
 
@@ -23,7 +23,7 @@ label {
     position: absolute;
     top: 36.6666666667px;
     color: rgba(255, 255, 255, 0.5);
-    font: 400 20px Roboto;
+    font: 400 20px Montserrat;
     cursor: text;
     transition: .25s ease;
 }
@@ -63,7 +63,7 @@ input {
 
 input:valid ~ label {
     top: 0;
-    font: 700 22px Roboto;
+    font: 700 22px Montserrat;
     color: rgba(255, 255, 255, 0.5);
 }
 
@@ -73,7 +73,7 @@ input:focus {
 
 input:focus ~ label {
     top: 0;
-    font: 700 20px Roboto;
+    font: 700 20px Montserrat;
     color: #2196f3;
 }
 
@@ -108,7 +108,6 @@ input:-webkit-autofill {
     background: rgba(33, 150, 243, 0.3);
 }
 
-/* Result specific css */
 .tooltip {
     position: relative;
     display: inline-block;
@@ -147,9 +146,7 @@ input:-webkit-autofill {
     opacity: 1;
 }
 
-.copyButton {
-    background: #2196F3;
-    color: #bce0fb;
+button {
     border: none;
     padding: 10px 20px;
     border-radius: 3px;
@@ -163,7 +160,17 @@ input:-webkit-autofill {
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.copyButton:hover {
+button:hover {
     background: #0d8aee;
-    color: #deeffd;
+    color: white;
+}
+
+a {
+    color: #299091;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+}
+
+a > button {
+    width: 250px;
 }

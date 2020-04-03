@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../static/css/shortenLinkStyle.css" th:href="@{/css/shortenLinkStyle.css}">
     <link rel="shortcut icon" type="image/x-icon" th:href="@{/favicon.ico}"/>
     <title>Link creator</title>
@@ -16,12 +16,16 @@
         <div class="bar"></div>
     </div>
 </form>
-<div class="tooltip">
-    <button class="copyButton" onclick="onCopyClick()">
-        <span class="tooltiptext" id="copyTooltip">Copies the link to your clipboard</span>
-        Copy link!
-    </button>
+<div id="order">
+    <div class="tooltip">
+        <button onclick="onCopyClick()">
+            <span class="tooltiptext" id="copyTooltip">Copies the link to your clipboard</span>
+            Copy link
+        </button>
+    </div>
+    <a th:href="${another}"><button id="other">Short another</button></a>
 </div>
 </body>
 <script src="/static/js/result.js" th:src="@{/js/result.js}"></script>
+<script src="../static/js/colorChanger.js" th:src="@{/js/colorChanger.js}"></script>
 </html>

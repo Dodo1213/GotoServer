@@ -40,8 +40,9 @@ public class LinkController {
     private ApplicationConfiguration appConfiguration;
 
     @GetMapping("/")
-    public String render(Model model) {
+    public String render(Model model, HttpServletRequest request) {
         model.addAttribute("gotoInfo", new LinkCreateRequest());
+        model.addAttribute("customKeyword", getBaseUrl(request) + "/customCreate");
         return "shortenLink";
     }
 
@@ -68,8 +69,9 @@ public class LinkController {
     }
 
     @GetMapping("/customCreate")
-    public String renderCustom(Model model) {
+    public String renderCustom(Model model, HttpServletRequest request) {
         model.addAttribute("gotoInfo", new CustomLinkCreateRequest());
+        model.addAttribute("normalShort", getBaseUrl(request));
         return "customShortenLink";
     }
 
@@ -95,6 +97,7 @@ public class LinkController {
             String linkId = createLinkShorted(gotoInfo.getLongUrl(), gotoInfo.getKeyword());
             modelAndView.setViewName("shortenLinkResult");
             modelAndView.addObject("gotoInfo", new LinkCreateResponse(baseUrl + "/" + linkId));
+            modelAndView.addObject("another", baseUrl + "/customCreate");
             return modelAndView;
         } catch (IOException e) {
             e.printStackTrace();
@@ -127,6 +130,7 @@ public class LinkController {
             String linkId = createLinkShorted(url, null);
             modelAndView.setViewName("shortenLinkResult");
             modelAndView.addObject("gotoInfo", new LinkCreateResponse(baseUrl + "/" + linkId));
+            modelAndView.addObject("another", baseUrl);
             return modelAndView;
         } catch (IOException e) {
             e.printStackTrace();
