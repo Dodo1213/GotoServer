@@ -42,7 +42,9 @@ public class LinkController {
     @GetMapping("/")
     public String render(Model model, HttpServletRequest request) {
         model.addAttribute("gotoInfo", new LinkCreateRequest());
-        model.addAttribute("customKeyword", getBaseUrl(request) + "/customCreate");
+        String baseUrl = getBaseUrl(request);
+        model.addAttribute("customKeyword", baseUrl + "/customCreate");
+        model.addAttribute("siteUrl", baseUrl);
         return "shortenLink";
     }
 
@@ -71,7 +73,9 @@ public class LinkController {
     @GetMapping("/customCreate")
     public String renderCustom(Model model, HttpServletRequest request) {
         model.addAttribute("gotoInfo", new CustomLinkCreateRequest());
-        model.addAttribute("normalShort", getBaseUrl(request));
+        String baseUrl = getBaseUrl(request);
+        model.addAttribute("normalShort", baseUrl);
+        model.addAttribute("siteUrl", baseUrl + "/customCreate");
         return "customShortenLink";
     }
 

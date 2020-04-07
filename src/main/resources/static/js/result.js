@@ -7,7 +7,7 @@ for (var i = 0; i < elements.length; i++) {
 function onCopyClick() {
     var textToCopy = document.getElementById("url");
     textToCopy.select();
-    textToCopy.setSelectionRange(0, 99999); /** Mobile devices **/
+    textToCopy.setSelectionRange(0, 99999); // mobile devices
     document.execCommand("copy");
 
     var tooltip = document.getElementById("copyTooltip");

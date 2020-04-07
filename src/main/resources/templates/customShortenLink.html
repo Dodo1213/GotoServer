@@ -1,37 +1,42 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../static/css/shortenLinkStyle.css" th:href="@{/css/shortenLinkStyle.css}">
-    <link rel="shortcut icon" type="image/x-icon" th:href="@{/favicon.ico}"/>
-    <title>Link creator</title>
-</head>
-<body>
-<h1>Create a custom shortened link</h1>
-<div id="order">
-    <form action="#" th:action="@{/customCreate}" th:object="${gotoInfo}" method="post">
-        <div class="group">
-            <input type="text" th:field="*{longUrl}" id="longUrl" required/>
-            <label for="longUrl">Long URL</label>
-            <div class="bar"></div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:site_name" content="Go-to server">
+        <meta property="og:url" th:content="${siteUrl}">
+        <meta property="og:title" content="Link shortener">
+        <meta property="og:description" content="Shortener of links!">
+        <meta property="og:type" content="website">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../static/css/shortenLinkStyle.css" th:href="@{/css/shortenLinkStyle.css}">
+        <link rel="shortcut icon" type="image/x-icon" th:href="@{/favicon.ico}"/>
+        <title>Link creator</title>
+    </head>
+    <body>
+        <h1>Create a custom shortened link</h1>
+        <div id="order">
+            <form action="#" th:action="@{/customCreate}" th:object="${gotoInfo}" method="post">
+                <div class="group">
+                    <input type="text" th:field="*{longUrl}" id="longUrl" required/>
+                    <label for="longUrl">Long URL</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="group">
+                    <input type="text" th:field="*{keyword}" id="keyword" required/>
+                    <label for="keyword">Custom keyword</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="group">
+                    <input type="password" th:field="*{password}" id="password" required/>
+                    <label for="password">Password</label>
+                    <div class="bar"></div>
+                </div>
+                <p><input type="submit" value="Shorten"/></p>
+            </form>
+            <a th:href="${normalShort}">
+                <button id="other">Normal short</button>
+            </a>
         </div>
-        <div class="group">
-            <input type="text" th:field="*{keyword}" id="keyword" required/>
-            <label for="keyword">Custom keyword</label>
-            <div class="bar"></div>
-        </div>
-        <div class="group">
-            <input type="password" th:field="*{password}" id="password" required/>
-            <label for="password">Password</label>
-            <div class="bar"></div>
-        </div>
-        <p><input type="submit" value="Shorten"/></p>
-    </form>
-    <a th:href="${normalShort}">
-        <button id="other">Normal short</button>
-    </a>
-</div>
-</body>
-<script src="../static/js/colorChanger.js" th:src="@{/js/colorChanger.js}"></script>
+    </body>
+    <script src="../static/js/colorChanger.js" th:src="@{/js/colorChanger.js}"></script>
 </html>

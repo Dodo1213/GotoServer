@@ -1,23 +1,23 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Catamaran:400,800" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../static/css/errorStyle.css" th:href="@{/css/errorStyle.css}">
-    <link rel="shortcut icon" type="image/x-icon" th:href="@{/favicon.ico}"/>
-    <title>404 Not found</title>
-</head>
-<body>
-<h1>404 Not Found</h1>
-<p class="zoom-area">The thing you were looking for doesn't exist now or never existed!</p>
-<section class="error-container">
-    <span>4</span>
-    <span><span class="screen-reader-text">0</span></span>
-    <span>4</span>
-</section>
-<div class="link-container">
-    <a th:href="${homePage}" class="more-link">Return to home page</a>
-</div>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Catamaran:400,800" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../static/css/errorStyle.css" th:href="@{/css/errorStyle.css}">
+        <link rel="shortcut icon" type="image/x-icon" th:href="@{/favicon.ico}"/>
+        <title>404 Not found</title>
+    </head>
+    <body>
+        <h1>404 Not Found</h1>
+        <p class="zoom-area">The thing you were looking for doesn't exist now or never existed!</p>
+        <section class="error-container">
+            <span>4</span>
+            <span><span class="screen-reader-text">0</span></span>
+            <span>4</span>
+        </section>
+        <div class="link-container">
+            <a th:href="${homePage}" class="more-link">Return to home page</a>
+        </div>
+    </body>
 </html>

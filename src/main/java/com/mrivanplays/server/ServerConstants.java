@@ -4,5 +4,5 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class ServerConstants {
 
-    public static ObjectMapper JSON_MAPPER = new ObjectMapper();
+    public static final ObjectMapper JSON_MAPPER = new ObjectMapper();
 }
